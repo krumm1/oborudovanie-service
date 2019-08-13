@@ -7,17 +7,17 @@ $(function () {
 
   // calculatePosition();
   let timeout = null;
-  $('.filter-menu-list-item').mouseenter(function() {
+  $('.left-menu-block > ul > li').mouseenter(function() {
     clearTimeout(timeout);
     showSubmenu(this);
-    calculatePosition($(this).children('.submenu'));
+    calculatePosition($(this).children('ul'));
   });
-  $('.filter-menu-list-item').mouseleave(function() {
+  $('.left-menu-block > ul > li').mouseleave(function() {
     clearTimeout(timeout);
     timeout = setTimeout(hideSubmenu, 1500);
   });
   $('.submenu-close-btn').click(function () {
-    $(this).parent().css('display', 'none');
+    $(this).parent().removeClass('opened');
   });
 
   $('.mobile-menu-list .parent').click(function (e) {
@@ -50,7 +50,7 @@ function getLeftPosition() {
 }
 function showSubmenu(menuItem) {
   hideSubmenu();
-  $(menuItem).children('.submenu').show();
+  $(menuItem).children('ul').addClass('opened');
 }
 
 function initProductsSlider() {
@@ -63,19 +63,19 @@ function initProductsSlider() {
 }
 
 function hideSubmenu() {
-  $('.submenu').hide();
+  $('.left-menu-block > ul > li > ul').removeClass('opened');
 }
 
 function calculatePosition(submenu) {
   submenu.css('left', getLeftPosition());
-  let containerTop = $('.filter-menu').offset().top;
+  let containerTop = $('.left-menu').offset().top;
   let parentTop = submenu.parent().offset().top;
   let bottom = submenu.offset().top + submenu.outerHeight();
-  let headerBottom = getHeaderHeight();
   
   console.log('Parent top: ' + parentTop + ', bottom: ' + bottom);
 
-  submenu.css('top', getHeaderHeight() - containerTop + $(window).scrollTop());
+  // submenu.css('top', getHeaderHeight() - containerTop + $(window).scrollTop());
+  submenu.css('top', getHeaderHeight() - parentTop + $(window).scrollTop());
 
   /*$('.filter-menu-list .submenu').each(function() {
     let $el = $(this);
