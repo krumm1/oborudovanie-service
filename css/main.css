@@ -399,6 +399,20 @@ img {
 .count {
   color: #9E9E9E; }
 
+@media only screen and (max-width: 1200px) {
+  .left-panel .logo {
+    padding-right: .5rem; }
+  .left-panel-sale-numb {
+    margin-left: .5rem; }
+  .left-panel-sale-img {
+    margin-right: .5rem; }
+  .left-menu-block > ul > li:hover::after {
+    width: 5%; } }
+
+@media only screen and (max-width: 1140px) {
+  .left-menu-block > ul > li > ul {
+    width: 104rem; } }
+
 .header {
   background: #fff;
   padding-bottom: 1.5rem;

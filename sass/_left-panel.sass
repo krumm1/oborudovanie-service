@@ -186,4 +186,26 @@
 .count
      color: $pale-gray            
 
+@media only screen and (max-width: 1200px)
+    .left-panel
+        .logo
+            padding-right: .5rem
+        &-sale
+            &-numb
+                margin-left: .5rem
+            &-img
+                margin-right: .5rem    
+    .left-menu
+        &-block 
+            > ul
+                > li 
+                    &:hover
+                        &::after
+                            width: 5%
 
+@media only screen and (max-width: 1140px)
+    .left-menu-block
+        > ul
+            > li
+                > ul
+                    width: 104rem                                        
