@@ -104,6 +104,7 @@
         display: flex
         flex-direction: column
         align-items: flex-end   
+        min-width: 160px
         &-title
             font-size: 1.4rem
             color: $pale-gray       
@@ -131,10 +132,20 @@
     transition: .6s ease     
     &.opened
         transform: none
-        opacity: 1        
+        opacity: 1     
+
+@media only screen and (max-width: 1140px)
+    .search-input-wrap
+        max-width: 50rem 
+
+
 @media only screen and (max-width: 991px)
     .show-mobile-catalog
         display: block           
     .page
         &::before
-            width: 100%       
+            width: 100%    
+    .phone
+        font-size: 1.8rem
+        &-block
+            max-width: unset               
