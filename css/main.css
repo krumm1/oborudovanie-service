@@ -305,10 +305,10 @@ img {
             font-size: 2.4rem;
             font-weight: bold;
             line-height: 4.8rem; }
-            .left-menu-block > ul > li > ul > li span {
+            .left-menu-block > ul > li > ul > li > span {
               padding-bottom: 1rem;
               position: relative; }
-              .left-menu-block > ul > li > ul > li span::after {
+              .left-menu-block > ul > li > ul > li > span::after {
                 content: "";
                 position: absolute;
                 left: 0;
