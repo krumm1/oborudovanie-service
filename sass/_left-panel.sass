@@ -117,20 +117,6 @@
 
 
 .submenu
-    background: #ffffff url("../media/submenu.png") right bottom no-repeat
-    padding: 1.5rem 3rem 1rem
-    position: absolute
-    // transform: translateX(100%)
-    width: 111rem
-    height: 60rem
-    z-index: 1
-    display: none
-    &-content
-        width: 100%
-        height: 100%
-        display: flex
-        flex-direction: column
-        flex-wrap: wrap
     &-close-btn
         border: none
         background: none
@@ -158,31 +144,7 @@
             top: 50%
             transform: rotate(-45deg)
         &::after
-            transform: rotate(45deg)      
-    &-block
-        flex-basis: 20%     
-        float: left
-        margin-bottom: 1rem
-        &-title
-            font-size: 2.4rem
-            font-weight: bold
-            line-height: 4.8rem
-            position: relative
-            &::after
-                content: ""
-                position: absolute
-                left: 0
-                bottom: 0
-                height: 1px
-                width: 21rem
-                background: $orange
-        li
-            line-height: 3.2rem     
-            a
-                border-bottom: 1px solid transparent
-            &:hover
-                a
-                    border-color: #000    
+            transform: rotate(45deg)         
 .count
      color: $pale-gray            
 
