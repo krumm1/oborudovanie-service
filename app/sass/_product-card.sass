@@ -1,0 +1,125 @@
+.product-card
+    min-height: 42rem
+    &-inner
+        margin: 0 auto
+        width: 21rem
+        max-width: 100%
+        padding: 3rem 2rem 2rem
+        position: relative
+    &:hover
+        .product-card
+            &-inner
+                box-shadow: 0px 9px 38px rgba(43, 56, 143, 0.3)
+                border-radius: 3px
+            &-button
+                background: $orange    
+            &-img
+                filter: blur(10px)
+            &-quick-view
+                display: block        
+    &.has-discount:hover
+        // .product-card-button
+        //     background: $orange     
+        // .product-card-price-value .old
+        //     display: inline       
+    &-img
+        height: 18rem
+        overflow: hidden
+        position: relative
+        margin-bottom: 1rem
+        img
+            max-width: 100%
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%, -50%)
+    &-content
+        margin-bottom: 1.4rem
+        font-weight: 600
+    &-stock
+        color: $violet  
+        font-size: 1.4rem
+        display: block
+    &-name
+        font-size: 1.6rem   
+    &-price
+        font-size: 1.4rem
+        font-weight: 600
+        margin-bottom: 2rem
+        &-value
+            font-family: $secondaryFont
+            font-size: 2rem
+            font-weight: 500
+            display: block   
+            .old
+                font-size: 1.6rem
+                color: $pale-gray
+                margin-right: 1rem
+                position: relative
+                &::before
+                    content: ""
+                    background: $pale-gray
+                    position: absolute
+                    top: 50%
+                    left: 0
+                    width: 100%
+                    height: 1px
+    &-button
+        display: inline-block
+        font-size: 1.4rem
+        font-weight: 600
+        color: #fff
+        background: $violet
+        width: 100%
+        height: 4rem
+        line-height: 4rem
+        text-align: center
+        text-transform: uppercase
+        border-radius: 3px          
+    &-code
+        color: #c4c4c4
+        font-family: $secondaryFont
+        font-size: 1.2rem
+        font-weight: 100
+        position: absolute
+        left: 1rem
+        top: .8rem
+    &-discount   
+        background: #fff
+        border-radius: 50%
+        box-shadow: 0px 9px 38px rgba(0, 0, 0, 0.3), 0px 8px 12px rgba(0, 0, 0, 0.22)
+        color: $orange
+        font-family: $secondaryFont
+        font-size: 1.4rem
+        font-weight: bold
+        line-height: 4rem
+        width: 4rem
+        height: 4rem
+        text-align: center
+        position: absolute
+        top: 1rem
+        right: 1rem  
+        z-index: 1     
+    &-descr
+        display: block
+        font-weight: 300
+        font-size: 1.4rem
+        line-height: 2rem
+    &-quick-view
+        height: 4rem
+        display: none
+        width: 100%
+        max-width: 19rem
+        text-decoration: none
+        border-radius: 3px
+        border: 1px solid $violet
+        text-align: center
+        color: $violet
+        font-size: 1.6rem
+        font-weight: bold
+        line-height: 4rem
+        position: absolute
+        top: 10rem
+        left: 50%
+        transform: translateX(-50%)
+        z-index: 1                  
