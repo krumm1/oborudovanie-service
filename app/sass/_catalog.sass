@@ -131,6 +131,72 @@
                 &_active
                     font-weight: bold
                     color: #000     
+    &-detail
+        font-family: $ubuntu
+        font-size: 1.6rem
+        line-height: 2.4rem
+        color: #222631
+        .catalog-heading
+            margin-bottom: 3.5rem
+        &__img
+            display: flex    
+        &__thumbs
+            max-width: 8.7rem
+            max-height: 39.6rem
+            display: inline-block
+            margin-right: 2.5rem
+            .slick-slide
+                height: 11.3rem
+                margin-bottom: 1.7rem
+                img
+                    max-width: 100%
+                    max-height: 100%
+        &__detail-img
+            height: 39.6rem
+            flex-basis: 100%
+            position: relative
+            overflow: hidden  
+            img
+                max-width: 100%
+                max-height: 100%
+                position: absolute
+                left: 50%
+                top: 50%
+                transform: translate(-50%, -50%)
+        &__descr
+            &-title
+                font-family: $primaryFont
+                color: #000000
+                font-size: 2rem
+                font-weight: bold
+                line-height: 2.3rem
+            & > div
+                margin: 2rem 0    
+        &-icon
+            display: flex
+            align-items: flex-end
+            border-bottom: 1px dashed $violet
+            font-size: 1.4rem
+            line-height: 1.6rem
+            margin-right: 1rem
+            color: $violet
+            max-width: 14.5rem
+            padding-bottom: 5px
+            &.gray
+                color: #666666
+                border-color: #666
+            &:last-child
+                margin-right: 0
+            img
+                margin-right: 0.8rem
+            &s
+                margin-top: 5rem
+                display: flex    
+                justify-content: space-between     
+        &__link
+            font-weight: bold
+            color: $violet
+            text-decoration: underline                        
 .price
     &-bar
         position: relative
@@ -228,7 +294,18 @@
                     position: absolute
                     left: 0
                     width: 100%
-
+        &-detail
+            &__img
+                flex-direction: column
+            &__detail-img
+                flex-basis: auto
+                order: -1
+            &__thumbs
+                max-width: 100%
+                max-height: 12rem
+                margin: 2rem
+                .slick-slide img
+                    margin: 0 auto        
 
 @media (max-width: 767px)
     .catalog
@@ -252,4 +329,10 @@
     .catalog
         &-content
             .product-card
-                flex-basis: 50%                
+                flex-basis: 50%     
+        &-detail-icon
+            margin: 0 0 1.5rem
+            max-width: 100%
+            &s
+                flex-direction: column         
+                align-items: center        

@@ -1,0 +1,219 @@
+.order-make
+    padding-bottom: 4rem
+    &__heading
+        margin-top: 2.5rem
+    &__subheading
+        margin: 0
+        font-size: 1.6rem
+        color: #000000
+        font-weight: bold
+        margin-bottom: 2rem    
+    &__block
+        padding: 2.8rem 0 0 9.5rem    
+        margin-bottom: 3rem
+        position: relative
+        background-color: #fff
+        &::before
+            position: absolute
+            top: 2rem
+            left: 15px
+        &.customer
+            padding-bottom: 1.2rem
+            padding-right: 11.3rem
+            &::before
+                content: url("../media/icons/order/placeholder.png") 
+            .customer__text
+                font-size: 1.4rem
+                font-weight: 300
+                color: $text-color
+                display: inline-block
+                a
+                    text-decoration: underline     
+            .customer__type
+                .checkbox-wrap:not(:last-child)
+                    margin-right: 2rem    
+        &.delivery
+            flex-basis: 50%
+            min-height: 34.7rem
+            &::before
+                content: url("../media/icons/order/delivery.png")    
+            .delivery-block
+                margin-bottom: 3.5rem
+                max-width: 22.5rem
+                .checkbox-wrap
+                    display: block
+                    margin-bottom: 0.6rem
+                &__text
+                    font-size: 1.2rem
+                    color: #666
+                    line-height: 1.6rem
+                    margin-top: 0.6rem
+                .label
+                    font-size: 1.2rem
+                    display: inline-block
+                    text-align: center
+                    padding: 3px 7px
+                    background-color: #666666
+                    color: #fff
+                    margin-left: 1rem
+                    border-radius: 3px
+                &:last-child
+                    margin-bottom: 0
+        &.payment
+            margin-left: 30px
+            flex-basis: 50%
+            min-height: 34.7rem
+            .checkbox-wrap
+                display: block
+                margin-bottom: 1.1rem
+                &:last-child
+                    margin-bottom: 0
+            &::before
+                content: url("../media/icons/order/wallet.png")
+        &.profile
+            padding-right: 11.3rem
+            padding-bottom: 4.5rem
+            .map
+                height: 37.2rem
+                background-color: #EEF2F7
+                margin: 3rem 0
+            &::before
+                content: url("../media/icons/order/profile.png")               
+        &.products
+            padding: 3rem 0 5.5rem
+            .order-make__subheading
+                padding-left: 9.5rem
+            .basket
+                &__info
+                    flex-basis: auto
+                &__name
+                    font-size: 1.6rem
+                &__cost
+                    justify-content: space-around
+                    .amount-price
+                        font-size: 2rem
+            &::before
+                content: url("../media/icons/order/shopping-cart.png")                          
+    &__text
+        color: #666666
+        font-size: 1.2rem
+        // font-family: $secondary-font
+        margin-top: 0.8rem        
+    &-rblock
+        background-color: #fff
+        border: 1px solid $violet
+        border-radius: 3px
+        &__row
+            border-bottom: 1px solid #c4c4c4
+            padding: 2.5rem 3.4rem 2.5rem 2.6rem
+            .flex
+                display: flex
+                justify-content: space-between
+                margin-bottom: 2rem
+                &:last-child
+                    margin-bottom: 0
+                &.label
+                    background-color: $orange
+                    padding: 5px    
+            .change-link
+                font-size: 1.4rem
+                text-decoration: none
+                color: $violet 
+            &:last-child
+                border-bottom: 0      
+        &__title
+            font-size: 1.4rem
+            color: #2C2C2B
+            &.promo
+                color: #000000
+                font-size: 1.6rem
+                font-weight: bold
+                position: relative
+                margin-bottom: 1.8rem
+                cursor: pointer
+                &::before
+                    content: url('../media/icons/order/arrow-up.png')
+                    position: absolute
+                    right: 0
+                    top: 50%
+                    transform: translateY(-50%)
+        &__descr
+            font-size: 1.4rem
+            // font-family: $secondary-font
+            position: relative
+            span
+                font-size: 1.2rem
+                color: $gray-color
+                text-decoration: line-through
+                position: absolute
+                top: 100%
+                right: 0                            
+        &__bold
+            color: #000000
+            font-size: 1.6rem
+            font-weight: bold    
+            font-family: $ubuntu          
+.clear
+    position: absolute
+    right: 1.2rem
+    top: 50%
+    transform: translateY(-50%)
+    width: 1.8rem
+    height: 1.8rem
+    background: url('../media/icons/order/Shape.png') center
+    background-repeat: no-repeat
+    cursor: pointer
+    display: none
+.text-input:focus + .clear
+    display: block    
+.order-delivery-payment
+    display: flex
+    justify-content: space-between    
+
+.order-success
+    padding: 12rem 0 4rem
+    &__text
+        font-size: 1.6rem
+        line-height: 3.2rem
+        a
+            color: $violet
+            text-decoration: underline
+@media (max-width: 1199px)
+    .order-make
+        &-rblock
+            margin: 0 0 2rem     
+            .btn
+                display: none
+    .order-success
+        padding: 0 0 7rem          
+@media (max-width: 991px)
+    .order-make
+        &__block
+            &.products
+                .basket__name
+                    padding-right: 0             
+@media (max-width: 767px)
+    .order-make
+        &__block
+            margin-left: 0
+            margin-right: 0    
+            padding: 28px 10px 26px !important
+            &.payment
+                margin-left: 0
+                min-height: auto
+            &.delivery
+                min-height: auto    
+            &.products
+                .order-make__subheading
+                    padding: 0          
+        &__subheading
+            margin-left: 68px     
+    .customer
+        &__type
+            .checkbox-wrap
+                display: block
+                margin: 0 0 10px
+                &:last-child
+                    margin-bottom: 0                   
+    .order-delivery-payment
+        flex-direction: column         

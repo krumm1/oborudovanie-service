@@ -1,0 +1,71 @@
+.amount
+    &-block
+        min-height: 21rem
+        padding: 2.2rem 1rem 3.2rem 3.9rem
+        box-shadow: 0px 9px 38px rgba(0, 0, 0, 0.3), 0px 8px 12px rgba(0, 0, 0, 0.22)
+        border-radius: 3px
+        .amount-input
+            margin-bottom: 1.4rem
+    &-price
+        color: #000000
+        font-size: 2.8rem
+        font-family: $secondaryFont
+        line-height: 2rem
+        margin-bottom: 2.5rem
+    &-input
+        width: 14rem
+        height: 5rem
+        display: flex
+        font-size: 1.6rem 
+        line-height: 5rem
+        color: #222631
+        span
+            width: 33.333%
+            text-align: center
+            border: 1px solid #9E9E9E
+            border-radius: 3px
+            text-decoration: none
+            cursor: pointer
+        input
+            width: 33.333%     
+            text-align: center       
+            border: 1px solid #9E9E9E
+            margin-left: -1px
+            margin-right: -1px
+            border-radius: 3px
+    &-btn
+        height: 4rem
+        width: 16rem
+        background-color: $orange
+        font-size: 1.6rem
+        line-height: 4rem
+        text-align: center
+        display: inline-block        
+        color: #fff
+        text-transform: uppercase
+        font-weight: bold
+        font-family: $primaryFont
+        border: 1px solid $orange
+        border-radius: 3px
+        margin-right: 2rem
+        margin-bottom: 1rem
+        &_transparent
+            text-transform: none
+            color: $violet
+            background-color: transparent
+            border-color: $violet
+        &:last-of-type
+            margin-right: 0    
+@media (max-width: 991px)
+    .amount
+        &-block
+            max-width: 60rem
+            margin: 0 auto    
+            text-align: center
+            .amount-input
+                margin: 0 auto 1.4rem
+        &-btn
+            display: block
+            margin: 0 auto 1rem                
+            &:last-of-type
+                margin-right: auto

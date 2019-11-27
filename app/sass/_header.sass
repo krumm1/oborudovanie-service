@@ -44,17 +44,19 @@
             min-height: 13rem
             &-btn
                 margin: 0
+        .left-menu
+            &_absolute
+                top: 0
+            &-content
+                height: calc(100vh - 13rem)
+                width: 100vw
+                overflow-y: auto    
+                &-inner    
+                    width: 20.5rem
+                    
         & + .container 
             .page::before
                 display: none
-            .left-menu
-                &_absolute
-                    top: 0
-                &-content
-                    height: calc(100vh - 13rem)
-                    overflow-y: auto
-                    &-inner
-                        width: 13.3%
 
 
 

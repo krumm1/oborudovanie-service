@@ -1,0 +1,79 @@
+.shops
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    &-block
+        font-family: $secondaryFont
+        font-weight: 300
+        flex-basis: 50%
+        &-top
+            margin-bottom: 2.3rem
+        &-text
+            padding-left: 10px
+            border-left: 1px solid $violet
+            margin-bottom: 2.1rem
+        &-btn
+            display: block
+            width: 19rem
+            height: 4rem
+            line-height: 4rem
+            font-size: 1.6rem
+            font-family: $primaryFont
+            color: $orange
+            border: 1px solid $orange
+            border-radius: 3px
+            text-align: center   
+            cursor: pointer     
+.map
+    &-wrapper
+        height: 58.3rem
+        box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.22), 0px 4px 4px rgba(0, 0, 0, 0.25)
+        border-radius: 3px
+        position: relative
+        margin-top: 3rem
+        &_active
+            .map-overlay
+                display: none
+            .map-container
+                filter: none
+    &-overlay
+        position: absolute
+        left: 0
+        top: 0
+        width: 100%
+        height: 100%
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        z-index: 1
+        &-heading
+            font-size: 2rem
+            font-weight: bold
+            margin-bottom: 3rem
+        &-buttons
+            display: flex
+            .shops-block-btn
+                margin: 0 1.4rem    
+    &-container
+        position: absolute
+        left: 0
+        top: 0
+        width: 100%
+        height: 100%
+        z-index: 0
+        filter: blur(10px)
+        #map
+            width: 100%
+            height: 100%
+@media (max-width: 767px)
+    .shops
+        flex-direction: column
+        &-block
+            margin-bottom: 3rem            
+    .map-overlay
+        padding: 0 1rem
+        &-buttons
+            flex-direction: column
+            .shops-block-btn
+                margin-bottom: 1rem        

@@ -1,0 +1,55 @@
+.personal
+    &-links
+        border: 1px solid $violet
+        border-radius: 3px
+        padding: 8px 1.5rem
+        margin-top: 8rem
+        li
+            font-size: 1.6rem
+            line-height: 3.2rem
+            font-family: $ubuntu
+            color: $text-color
+            margin-bottom: 1.2rem
+            &:last-child
+                margin-bottom: 0
+        img
+            vertical-align: middle
+            max-width: 20px
+            margin-right: 10px
+        &_big
+            border: none
+            display: flex
+            flex-wrap: wrap
+            padding: 0
+            margin: 1.4rem 0
+            li
+                flex-basis: 20.5%
+                text-align: center
+                margin: 0 3rem 3rem 0
+                height: 30rem
+                display: flex
+                flex-direction: column
+                justify-content: center
+                box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.07)
+            img
+                margin-right: 0
+                margin: 0 auto 5rem
+                display: block
+                max-width: none    
+            li
+                font-family: $primaryFont
+                font-weight: bold    
+    &__heading
+        color: $text-color
+        font-size: 2.4rem
+        line-height: 3.2rem
+        font-weight: normal
+        margin: 0        
+@media (max-width: 991px)
+    .personal-links
+        &_big  
+            justify-content: center
+            li
+                flex-basis: 33.33%        
+                margin: 0 1.5rem 3rem
+                padding: 1rem 

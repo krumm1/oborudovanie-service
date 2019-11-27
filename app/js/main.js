@@ -45,10 +45,25 @@ $(function () {
   $('.footer-block__heading').on('click', function () {
     $(this).toggleClass('active');
     $(this).siblings('ul').toggleClass('active');
-  })
+  });
+
+  $('.relative').on('mousedown', '.clear', function (e) {
+    $(this).siblings('input').val('');
+  });
+
+  $('.order-make-rblock__title.promo').on('click', function () {
+    let $sibling = $(this).next();
+    if ($sibling.css('display') == 'none') {
+      $sibling.fadeIn();
+    } else {
+      $sibling.fadeOut();
+    }
+  });
 
   initProductsSlider();
   initBannerSlider();
+  initDetailSlider();
+  initMap();
 
   $('.catalog-filter__title').on('click', function () {
     $(this).parent().toggleClass('catalog-filter__block_active');
@@ -69,9 +84,9 @@ $(function () {
 
     if ($headerMain.length) {
       $leftMenu.css({
-        'left': $(this).closest('.container').offset().left,
-        'top': $(window).scrollTop() + $('.header').outerHeight()
+        'top': $('.header').outerHeight()
       });
+      $leftMenu.find('.left-menu-content-inner').css('width', + $(this).parent('.left-panel').outerWidth());
     }
   });
 
@@ -82,7 +97,18 @@ $(function () {
       let $catalogPanel = $('.catalog-panel');
       return $catalogPanel.offset().top + $catalogPanel.outerHeight();
     }
-  })
+  });
+
+  $('ul.tabs__caption').on('click', 'li:not(.active)', function () {
+    $(this)
+      .addClass('active').siblings().removeClass('active')
+      .closest('.tab').find('.tab__content').removeClass('active').eq($(this).index()).addClass('active');
+  });
+
+  $('.open-popup').magnificPopup({
+    type: 'inline',
+    closeMarkup: '<button title="%title%" type="button" class="popup-close mfp-close">Закрыть</button>'
+  });
 
 });
 
@@ -99,12 +125,25 @@ function showSubmenu(menuItem) {
 }
 
 function initProductsSlider() {
-  $('.popular-goods-slider').slick({
-    slidesToShow: 5,
+  let $slider = $('.popular-goods-slider'),
+    slidersCount = 5;
+
+  if ($('.catalog-detail').length) {
+    slidersCount = 6;
+  }
+
+  $slider.slick({
+    slidesToShow: slidersCount,
     slidesToScroll: 1,
     prevArrow: $('.popular-goods-pagination .prev'),
     nextArrow: $('.popular-goods-pagination .next'),
     responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 5
+        }
+      },
       {
         breakpoint: 992,
         settings: {
@@ -131,6 +170,35 @@ function initProductsSlider() {
       }
     ]
   });
+}
+
+function initDetailSlider() {
+  let $slider = $('.catalog-detail__thumbs'),
+    $detailImg = $('.catalog-detail__detail-img img');
+
+  $slider.slick({
+    arrows: false,
+    vertical: true,
+    verticalSwiping: true,
+    autoplay: true,
+    slidesToShow: 3,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          vertical: false,
+          verticalSwiping: false
+        }
+      }
+    ]
+  });
+
+  $slider.on('click', function (e) {
+    if (e.target) {
+      let $img = $(e.target).data('src');
+      $detailImg.attr('src', $img);
+    }
+  })
 }
 
 function hideSubmenu() {
@@ -171,4 +239,43 @@ function initBannerSlider() {
     nextArrow: $('.index-banner__arrow.next'),
     autoplaySpeed: 10000
   })
+}
+
+function initMap() {
+  let map, marker;
+  const coordinates = {
+    vladivostok: [43.236825, 132.013804],
+    ussuriysk: [43.843118, 131.938102],
+  }
+
+  if (typeof DG !== 'undefined') {
+    let mapWrapper = document.querySelector('.map-wrapper');
+    DG.then(function () {
+      map = DG.map('map', {
+        center: coordinates.vladivostok,
+        scrollWheelZoom: false,
+        zoom: 16
+      });
+
+      marker = new DG.Marker(coordinates.vladivostok);
+      marker.addTo(map);
+
+      document.querySelectorAll('.show-vladivostok').forEach(item => {
+        item.addEventListener('click', () => {
+          applyMapSettings(coordinates.vladivostok)
+        });
+      })
+      document.querySelectorAll('.show-ussuriysk').forEach(item => {
+        item.addEventListener('click', () => {
+          applyMapSettings(coordinates.ussuriysk)
+        });
+      })
+
+      function applyMapSettings(coordinates) {
+        map.setView(coordinates);
+        marker.setLatLng(coordinates);
+        mapWrapper.classList.add('map-wrapper_active');
+      }
+    });
+  }
 }

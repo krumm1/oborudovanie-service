@@ -1,0 +1,28 @@
+.tab__content
+    display: none
+    &.active
+        display: block
+.tabs__caption
+    margin-bottom: 3rem
+    li
+        display: inline-block
+        border-bottom: 1px solid #000
+        margin-right: 3.5rem
+        width: 21rem
+        height: 4.5rem
+        line-height: 4.5rem
+        font-size: 2rem
+        font-family: $primaryFont
+        text-align: center  
+        cursor: pointer
+        &.active
+            font-weight: bold
+            color: $violet
+            border-color: $violet
+            box-shadow: 0px 9px 38px rgba(0, 0, 0, 0.3), 0px 8px 12px rgba(0, 0, 0, 0.22)
+            border-radius: 3px
+        &:last-child
+            margin-right: 0    
+.tab
+    margin-top: 4rem    
+    margin-bottom: 5rem      

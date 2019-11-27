@@ -46,7 +46,13 @@ img
     font-size: 3.6rem
     line-height: 4rem
     font-weight: 800
-
+    font-family: $primaryFont
+    &_small
+        font-size: 2.4rem
+        font-family: $ubuntu
+        font-weight: bold
+        line-height: 2rem
+        color: #000000
 .popular-goods
     &-slider 
         .slick-track
@@ -99,6 +105,68 @@ img
     background-color: rgba($violet, .75)
     z-index: 1    
     display: none
+.relative
+    position: relative
+.edit-content
+    font-size: 1.6rem
+    line-height: 2.4rem
+    padding: 5rem 0 0 7rem
+    table
+        font-size: 1.4rem
+        border-collapse: collapse
+        font-family: $ubuntu
+        tr
+            height: 4rem
+            &:nth-child(odd)
+                background: rgba(227, 227, 227, 0.5)
+    ul
+        margin: 2rem 0
+        li
+            line-height: 4rem
+            &::before
+                content: "—"  
+                margin-right: 5px          
+.about
+    &-img
+        position: absolute
+        top: 9rem
+        right: 0
+        z-index: -1
+    .edit-content
+        max-width: 69rem     
+.requisites
+    display: flex
+    &-buttons
+        max-width: 32rem
+        margin-left: 2rem
+        a
+            display: block
+            min-height: 8rem
+            padding: 1.5rem 3.2rem 1.7rem 8.5rem
+            border: 1px solid #000
+            border-radius: 3px
+            margin-bottom: 2rem
+            line-height: 2.4rem
+            font-family: $secondaryFont
+            position: relative
+            &::before
+                content: ""
+                width: 4rem
+                height: 4rem
+                background: url('../media/icons/download.svg') center no-repeat
+                background-size: cover
+                position: absolute
+                left: 2.5rem
+                top: 50%
+                transform: translateY(-50%)
+@media (max-width: 991px)
+    .edit-content
+        padding-left: 0                
+@media (max-width: 767px)
+    .requisites
+        flex-direction: column                
+        &-buttons
+            margin: 2rem auto
 @import 'left-panel'  
 @import 'header'  
 @import 'product-card'
@@ -110,3 +178,13 @@ img
 @import 'checkbox'
 @import 'catalog'
 @import 'breadcrumbs'
+@import 'amount'
+@import 'tabs'
+@import 'popups'
+@import 'basket'
+@import 'order-make'
+@import 'input'
+@import 'buttons'
+@import 'personal'
+@import 'nav-left'
+@import 'shops'
