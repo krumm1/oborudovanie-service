@@ -110,6 +110,18 @@ $(function () {
     closeMarkup: '<button title="%title%" type="button" class="popup-close mfp-close">Закрыть</button>'
   });
 
+  $(document).on('click', '.open-ajax-popup', function (e) {
+    e.preventDefault();
+    $(this).magnificPopup({
+      type: 'ajax',
+      callbacks: {
+        ajaxContentAdded: function (data) {
+          initDetailSlider();
+        }
+      }
+    }).magnificPopup('open');
+  })
+
 });
 
 function getHeaderHeight() {
@@ -173,7 +185,7 @@ function initProductsSlider() {
 }
 
 function initDetailSlider() {
-  let $slider = $('.catalog-detail__thumbs'),
+  let $slider = $('.catalog-detail__thumbs:not(.slick-initilized)'),
     $detailImg = $('.catalog-detail__detail-img img');
 
   $slider.slick({
