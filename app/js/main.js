@@ -51,14 +51,14 @@ $(function () {
     $(this).siblings('input').val('');
   });
 
-  $('.order-make-rblock__title.promo').on('click', function () {
+  $(document).on('click', '.order-make-rblock__title.promo', function () {
     let $sibling = $(this).next();
     if ($sibling.css('display') == 'none') {
       $sibling.fadeIn();
     } else {
       $sibling.fadeOut();
     }
-  });
+  })
 
   initProductsSlider();
   initBannerSlider();
@@ -70,10 +70,15 @@ $(function () {
   });
 
   $('.catalog-panel__layout').on('click', function (e) {
-    if (!$(e.target).hasClass('active')) {
-      $(this).children().removeClass('active');
-      $(e.target).addClass('active');
+    if (e.target) {
+      if ($(e.target).hasClass('active')) return;
+      $(e.target).addClass('active').siblings().removeClass('active');
       $('.catalog-content').toggleClass('catalog-content_lines');
+      if ($(e.target).hasClass('catalog-layout-lines')) {
+        document.cookie = "catalog_layout=line; max-age=3600*3";
+      } else {
+        document.cookie = "catalog_layout=tiles; max-age=3600*3";
+      }
     }
   });
 
@@ -112,6 +117,7 @@ $(function () {
 
   $(document).on('click', '.open-ajax-popup', function (e) {
     e.preventDefault();
+    let productId = $(this).data('id');
     $(this).magnificPopup({
       type: 'ajax',
       callbacks: {
@@ -120,6 +126,19 @@ $(function () {
         }
       }
     }).magnificPopup('open');
+  });
+
+  $(document).on('click', '#oneClickBtn', function (e) {
+    e.preventDefault();
+    var productId = $(this).data('id');
+    $('[name="product_id"]').val(productId);
+    $.magnificPopup.close();
+    $.magnificPopup.open({
+      items: {
+        src: '#one-click'
+      },
+      type: 'inline'
+    })
   })
 
 });
@@ -223,7 +242,7 @@ function calculatePosition(submenu) {
   let parentTop = submenu.parent().offset().top;
   let bottom = submenu.offset().top + submenu.outerHeight();
 
-  console.log('Parent top: ' + parentTop + ', bottom: ' + bottom);
+  // console.log('Parent top: ' + parentTop + ', bottom: ' + bottom);
 
   // submenu.css('top', getHeaderHeight() - containerTop + $(window).scrollTop());
   submenu.css('top', getHeaderHeight() - parentTop + $(window).scrollTop());

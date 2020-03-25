@@ -318,7 +318,7 @@ img {
   padding-top: 1rem;
   position: relative;
   height: calc(100% - 1px);
-  z-index: 6; }
+  z-index: 201; }
   .left-panel-sale {
     color: #FF8D47;
     height: 6rem;
@@ -869,6 +869,12 @@ img {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around; }
+  .categories__box:hover {
+    box-shadow: 0px 9px 38px rgba(0, 0, 0, 0.3), 0px 8px 12px rgba(0, 0, 0, 0.22);
+    color: #FF8D47; }
+    .categories__box:hover img {
+      -webkit-filter: url("#filter");
+              filter: url("#filter"); }
   .categories__box img {
     min-width: 8rem; }
 
@@ -1561,6 +1567,11 @@ img {
     max-width: 123rem; }
     .popup#quick-view .catalog-detail {
       padding: 30px; }
+  .popup__heading {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 400;
+    margin: 0 0 6rem; }
   .popup .popup-close {
     width: 106px;
     height: 30px;
@@ -1589,6 +1600,9 @@ img {
     .popup .popup-close::after {
       -webkit-transform: translateY(-50%) rotate(45deg);
               transform: translateY(-50%) rotate(45deg); }
+  .popup_one-click {
+    max-width: 45rem;
+    padding: 2rem; }
 
 .basket__block {
   min-height: 14.8rem;
@@ -2014,6 +2028,11 @@ img {
     width: 16rem;
     margin: 4rem 0; }
 
+.popup__btn {
+  width: auto;
+  padding: 0 2rem;
+  margin-top: 2rem; }
+
 .personal-links {
   border: 1px solid #2B388F;
   border-radius: 3px;
@@ -2170,3 +2189,12 @@ img {
       flex-direction: column; }
       .map-overlay-buttons .shops-block-btn {
         margin-bottom: 1rem; } }
+
+.not-found {
+  min-height: 40rem;
+  background: url("../media/logo-bg.png") right no-repeat;
+  background-size: contain; }
+  .not-found__text {
+    font-size: 1.4rem; }
+    .not-found__text a {
+      color: #2B388F; }
