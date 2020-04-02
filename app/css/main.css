@@ -397,6 +397,8 @@ img {
         .left-menu-block > ul > li img {
           max-width: 3rem;
           margin-right: 1rem; }
+        .left-menu-block > ul > li a {
+          max-width: 85%; }
         .left-menu-block > ul > li::after {
           content: "";
           position: absolute;
@@ -1467,7 +1469,8 @@ img {
   font-size: 2.8rem;
   font-family: "Roboto", sans-serif;
   line-height: 2rem;
-  margin-bottom: 2.5rem; }
+  margin-bottom: 2.5rem;
+  display:none; }
 
 .amount-input {
   width: 14rem;
