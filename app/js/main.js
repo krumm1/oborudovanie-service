@@ -115,6 +115,14 @@ $(function () {
     closeMarkup: '<button title="%title%" type="button" class="popup-close mfp-close">Закрыть</button>'
   });
 
+  $('.open-gallery-opup').magnificPopup({
+    delegate: 'a',
+    type: 'image',
+    gallery: {
+      enabled: true
+    }
+  });
+
   $(document).on('click', '.open-ajax-popup', function (e) {
     e.preventDefault();
     let productId = $(this).data('id');
