@@ -115,7 +115,7 @@ $(function () {
     closeMarkup: '<button title="%title%" type="button" class="popup-close mfp-close">Закрыть</button>'
   });
 
-  $('.open-gallery-opup').magnificPopup({
+  $('.open-gallery-popup').magnificPopup({
     delegate: 'a',
     type: 'image',
     gallery: {
