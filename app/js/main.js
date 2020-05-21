@@ -241,18 +241,43 @@ function initDetailSlider() {
 	});
 
 	$slider.on("click", function (e) {
+		e.preventDefault();
 		if (e.target) {
 			let $img = $(e.target).data("src");
 			$detailImg.attr("src", $img);
 		}
 	});
+
+	const onlyUnique = (value, index, arr) => {
+		return arr.indexOf(value) === index;
+	};
+
+	function sortArray(value, array) {
+		let index = array.indexOf(value);
+		let startArray = array.splice(index);
+		return startArray.concat(array);
+	}
+
+	let images = [];
 	$detailImg.on("click", function () {
-		$.magnificPopup.open({
-			items: {
-				src: $(this).attr("src"),
-			},
-			type: "image",
+		$slider.find("a").each((i, el) => {
+			images.push($(el).attr("href"));
 		});
+
+		images = images.filter(onlyUnique);
+		images = sortArray($(this).attr("src"), images);
+		images = images.map((val) => {
+			return { src: val };
+		});
+
+		$.magnificPopup.open({
+			items: images,
+			type: "image",
+			gallery: {
+				enabled: true,
+			},
+		});
+		images = [];
 	});
 }
 
