@@ -260,6 +260,7 @@ function initDetailSlider() {
 
 	let images = [];
 	$detailImg.on("click", function () {
+		if ($detailImg.parent().is("#quick-view-img")) return;
 		$slider.find("a").each((i, el) => {
 			images.push($(el).attr("href"));
 		});
