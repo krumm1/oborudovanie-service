@@ -1121,8 +1121,7 @@ img {
       -webkit-transform: translateY(-20%) rotate(135deg);
               transform: translateY(-20%) rotate(135deg); }
   .catalog-filter__content {
-    display: none;
-    max-height: 12rem; }
+    display: none; }
   .catalog-filter__title {
     font-size: 1.6rem;
     line-height: 3.2rem;
@@ -1463,7 +1462,8 @@ img {
 .breadcrumbs {
   font-size: 1.2rem;
   margin-bottom: 1.4rem;
-  line-height: 3.2rem; }
+  line-height: 3.2rem;
+  font-weight: 600; }
   .breadcrumbs a {
     margin-right: 2px; }
     .breadcrumbs a::after {
